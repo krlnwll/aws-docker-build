@@ -1,6 +1,6 @@
 FROM python:rc-slim
 
-RUN apk add gcc g++ make libffi-dev openssl-dev
+RUN apt-get install python-dev
 
 RUN python -m pip install --upgrade pip \
     && python -m pip install boto3 \
