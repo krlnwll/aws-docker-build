@@ -1,8 +1,13 @@
-FROM docker:latest
+FROM amazonlinux:latest
 
-RUN apk add --no-cache curl jq python py-pip
-
-RUN pip install awscli
-RUN pip install mysql-connector-python
-RUN pip install pycrypto
-RUN pip install boto3
+RUN yum -y install git \
+    python36 \
+    python36-pip \
+    zip \
+    && yum clean all
+    
+RUN python3 -m pip install --upgrade pip \
+    && python3 -m pip install boto3
+    && python3 -m pip install mysql-connector-python
+    && python3 -m pip install pycrypto
+   
