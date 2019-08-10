@@ -1,11 +1,5 @@
-FROM amazonlinux:latest
+FROM python:rc-slim
 
-RUN yum -y install git \
-    python36 \
-    python36-pip \
-    zip \
-    && yum clean all
-    
-RUN python3 -m pip install --upgrade pip \
-    && python3 -m pip install boto3
+RUN python -m pip install --upgrade pip \
+    && python -m pip install boto3
    
