@@ -1,12 +1,6 @@
-FROM lambci/lambda:build-python3.7
+FROM docker:latest
 
-# RUN apt-get update
-# RUN apt-get install openssl gcc
-# RUN apk add --no-cache --virtual .build-deps gcc musl-dev zip
+ RUN apk add --no-cache curl jq python py-pip
 
-RUN python -m pip install --upgrade pip \
-    && python -m pip install --upgrade setuptools \
-    && python -m pip install mysql-connector-python \
-    && python -m pip install pycryptodome \
-    && python -m pip install pycrypto
+ RUN pip install awscli
    
